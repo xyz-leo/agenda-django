@@ -35,6 +35,7 @@ media/
 
 # Static files
 staticfiles/
+static/
 
 # Pytest cache
 .pytest_cache/
