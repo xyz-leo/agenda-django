@@ -1,1 +1,45 @@
 {% extends 'global/base.html' %}
+{% load static %}
+
+{% block extracss %}
+  <link rel="stylesheet" href="{% static 'global/css/table.css' %}">
+{% endblock extracss %}
+
+
+{% block content %}
+  <div class="table">
+    <table class="contacts-table">
+      <caption class="table-caption">Contacts</caption>
+
+      <thead>
+        <tr class="table-row table-row-header">
+	  <th class="table-header">First Name</th>
+	  <th class="table-header">Last Name</th>
+	  <th class="table-header">Phone</th>
+	  <th class="table-header">E-mail</th>
+	</tr>
+      </thead>
+
+      <tbody>
+	{% for contact in contacts %}
+	  <tr class="table-row">
+	    <td class="table-cel" data-label="First Name">
+	      <a class="table-link" href="#">{{ contact.first_name }}</a>
+	    </td>
+	    <td class="table-cel" data-label="Last Name">
+	      {{ contact.last_name }}
+	    </td>
+
+	    <td class="table-cel" data-label="Phone">
+	      {{ contact.phone }}
+	    </td>
+
+	    <td class="table-cel" data-label="E-mail">
+	      {{ contact.email }}
+	    </td>
+	  </tr>
+	{% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock content %}

@@ -6,13 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Agenda Django</title>
   <link rel="stylesheet" href="{% static 'global/css/style.css' %}" />
+  {% block extracss %}
+    <!-- Extra css -->
+  {% endblock extracss %}
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <header>
     <h1>Agenda</h1>
-    <!-- Aqui pode entrar o menu de navegação -->
+    <!-- navigation menu -->
     <nav>
       <ul>
         <li><a href="#">Home</a></li>
@@ -30,14 +33,15 @@
   </header>
 
   <main>
-    <!-- Conteúdo principal da página -->
+    <!-- Main content -->
     {% block content %}
 
     {% endblock %}
   </main>
 
+  <!-- Do not use this website for production, it was just a practice website to learn Django -->
   <footer>
-    <p>© 2025 Agenda Django. Todos os direitos reservados.</p>
+    <p>Just a Django practice project, not for production use.</p>
   </footer>
 
 </body>
