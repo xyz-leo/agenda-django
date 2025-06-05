@@ -5,12 +5,13 @@ from contact import models
 
 @admin.register(models.Contact)
 class ContactAdmin(admin.ModelAdmin):
-    list_display = 'first_name', 'last_name', 'phone', 'category_name'
+    list_display = 'first_name', 'last_name', 'phone', 'category_name', 'show',
     ordering = '-id', 'first_name'
-    search_fields = 'first_name', 'last_name', 'phone',
+    search_fields = 'first_name', 'last_name', 'phone', 'email',
     list_per_page = 10
     list_max_show_all = 25
     list_display_links = 'first_name',
+    list_editable = "show",
     
     def category_name(self, obj):
         return obj.category.category_name if obj.category else '-'
