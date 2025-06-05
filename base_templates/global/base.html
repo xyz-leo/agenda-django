@@ -6,11 +6,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Agenda Django</title>
   <link rel="stylesheet" href="{% static 'global/css/style.css' %}" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
   <header>
-    <h1>Agenda Django</h1>
+    <h1>Agenda</h1>
     <!-- Aqui pode entrar o menu de navegação -->
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">New Contact</a></li>
+        <li><a href="#">Categories</a></li>
+<!--
+        <li><a href=" % url 'home' %}">Home</a></li>
+        <li><a href=" % url 'contact_list' %}">Contacts</a></li>
+        <li><a href=" % url 'add_contact' %}">New Contact</a></li>
+        <li><a href=" % url 'categories' %}">Categories</a></li>
+-->
+      </ul>
+    </nav>
   </header>
 
   <main>
@@ -23,6 +39,7 @@
   <footer>
     <p>© 2025 Agenda Django. Todos os direitos reservados.</p>
   </footer>
+
 </body>
 </html>
 

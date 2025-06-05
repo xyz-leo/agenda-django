@@ -1,4 +1,62 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    background-color: #222;
-    color: white;
+  font-family: 'Poppins', sans-serif;
+  background: #121212;
+  color: #e0e0e0;
+  min-height: 100vh;
+}
+
+header {
+  background: #1F1F1F;
+  color: #e0e0e0;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+header h1 {
+  font-size: 1.8rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: #e0e0e0;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #4A90E2; /* azul claro no hover */
+}
+
+main {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+  background: #1A1A1A;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.7);
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #1F1F1F;
+  color: #888;
+  margin-top: 2rem;
+  border-top: 1px solid #333;
 }
