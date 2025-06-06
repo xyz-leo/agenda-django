@@ -3,11 +3,10 @@ from django.shortcuts import get_object_or_404, render, redirect
 from django.db.models import Q
 from django.template.base import COMMENT_TAG_END
 from contact.models import Contact
-from django.http import Http404
 
 # Create your views here.
 
-def index(request):
+def contacts(request):
     contacts = Contact.objects \
             .filter(show=True) \
             .order_by("first_name")
@@ -19,24 +18,24 @@ def index(request):
     context = {
             'page_obj': page_obj,
             }
-    return render(request, 'contact/index.html', context)
+    return render(request, 'contact/contacts.html', context)
 
 
-def contact(request, contact_id):
+def single_contact(request, contact_id):
     single_contact = get_object_or_404(Contact, pk=contact_id, show=True)
 
     context = {
             'contact': single_contact
             }
 
-    return render(request, 'contact/contact.html', context)
+    return render(request, 'contact/single_contact.html', context)
 
 
 def search(request):
     search_value = request.GET.get('q', '').strip()
     
     if search_value == '':
-        return redirect('contact:index')
+        return redirect('contact:contacts')
     
     contacts = Contact.objects \
             .filter(show=True) \
@@ -55,7 +54,4 @@ def search(request):
     context = {
             'page_obj': page_obj,
             }
-    return render(request, 'contact/index.html', context)
-
-
-
+    return render(request, 'contact/contacts.html', context)

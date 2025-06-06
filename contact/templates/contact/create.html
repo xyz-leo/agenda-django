@@ -1,0 +1,38 @@
+{% extends 'global/base.html' %}
+{% load static %}
+
+{% block extracss %}
+  <link rel="stylesheet" href="{% static 'global/css/create_form.css' %}">
+{% endblock extracss %}
+
+{% block content %}
+  <div class="form-wrapper">
+    <h1 class="form-title">Create New Contact</h1>
+    <form action="" method="POST" class="form">
+      {% csrf_token %}
+      
+      <p>
+        <label for="id_first_name">First Name</label>
+        <input type="text" name="first_name" id="id_first_name" placeholder="Enter first name" required>
+      </p>
+      
+      <p>
+        <label for="id_last_name">Last Name</label>
+        <input type="text" name="last_name" id="id_last_name" placeholder="Enter last name" required>
+      </p>
+      
+      <p>
+        <label for="id_phone">Phone</label>
+        <input type="tel" name="phone" id="id_phone" placeholder="Enter phone number" required>
+      </p>
+      
+      <p>
+        <label for="id_email">E-mail</label>
+        <input type="email" name="email" id="id_email" placeholder="Enter email address" required>
+      </p>
+
+      <button type="submit" class="form-button">Create</button>
+    </form>
+  </div>
+{% endblock content %}
+
