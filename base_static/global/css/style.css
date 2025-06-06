@@ -60,3 +60,40 @@ footer {
   margin-top: 2rem;
   border-top: 1px solid #333;
 }
+
+.pagination {
+  margin-top: 2rem;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+.step-links {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #1f1f1f;
+  border: 1px solid #333;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.step-links a {
+  color: #00bcd4;
+  text-decoration: none;
+  margin: 0 0.5rem;
+  padding: 0.4rem 0.7rem;
+  border-radius: 5px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.step-links a:hover {
+  background-color: #00bcd4;
+  color: #000;
+}
+
+.step-links .current {
+  display: inline-block;
+  margin: 0 1rem;
+  color: #fff;
+  font-weight: bold;
+}
+

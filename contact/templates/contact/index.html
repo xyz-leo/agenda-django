@@ -26,7 +26,7 @@
       </thead>
 
       <tbody>
-	{% for contact in contacts %}
+	{% for contact in page_obj %}
 	  <tr class="table-row">
 	    <td class="table-cel" data-label="First Name">
 		<a class="table-link" href="{% url 'contact:contact' contact.id %}">{{ contact.first_name }}</a>

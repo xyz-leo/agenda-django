@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404, render, redirect
 from django.db.models import Q
 from django.template.base import COMMENT_TAG_END
@@ -9,10 +10,14 @@ from django.http import Http404
 def index(request):
     contacts = Contact.objects \
             .filter(show=True) \
-            .order_by("first_name")[:10]
+            .order_by("first_name")
+
+    paginator = Paginator(contacts, 10)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
 
     context = {
-            'contacts': contacts,
+            'page_obj': page_obj,
             }
     return render(request, 'contact/index.html', context)
 
@@ -41,10 +46,14 @@ def search(request):
                     Q(phone__icontains=search_value) |
                     Q(email__icontains=search_value)
             )\
-            .order_by('-id')[:10]
+            .order_by('-id')
+
+    paginator = Paginator(contacts, 8)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
 
     context = {
-            'contacts': contacts,
+            'page_obj': page_obj,
             }
     return render(request, 'contact/index.html', context)
 
