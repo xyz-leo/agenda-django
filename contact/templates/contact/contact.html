@@ -1,6 +1,10 @@
 {% extends 'global/base.html' %}
 {% load static %}
 
+{% block title %}
+<title>Agenda - {{ contact.first_name }} {{ contact.last_name }}</title>
+{% endblock title %}
+
 {% block extracss %}
   <link rel="stylesheet" href="{% static 'global/css/single_contact.css' %}">
 {% endblock extracss %}

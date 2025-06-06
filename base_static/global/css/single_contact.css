@@ -1,4 +1,7 @@
 /* static/global/css/single_contact.css */
+main {
+  margin-top: 2rem;
+}
 
 .single-contact {
   max-width: 600px;

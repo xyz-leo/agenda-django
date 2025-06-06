@@ -1,10 +1,12 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en_US">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Agenda Django</title>
+  {% block title %}
+    <title>Agenda Django</title>
+  {% endblock title %}
   <link rel="stylesheet" href="{% static 'global/css/style.css' %}" />
   {% block extracss %}
     <!-- Extra css -->
@@ -18,24 +20,17 @@
     <!-- navigation menu -->
     <nav>
       <ul>
-        <li><a href="#">Home</a></li>
+	<li><a href="{% url 'contact:index' %}">Home</a></li>
         <li><a href="#">Contact</a></li>
         <li><a href="#">New Contact</a></li>
         <li><a href="#">Categories</a></li>
-<!--
-        <li><a href=" % url 'home' %}">Home</a></li>
-        <li><a href=" % url 'contact_list' %}">Contacts</a></li>
-        <li><a href=" % url 'add_contact' %}">New Contact</a></li>
-        <li><a href=" % url 'categories' %}">Categories</a></li>
--->
       </ul>
     </nav>
   </header>
 
   <main>
-    <!-- Main content -->
     {% block content %}
-
+      <!-- Main content -->
     {% endblock %}
   </main>
 

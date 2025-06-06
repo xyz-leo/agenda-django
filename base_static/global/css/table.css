@@ -7,8 +7,20 @@
   margin: 20px 0;
 }
 
+.search {
+  display: flex;
+  justify-content: space-between;
+}
+
+.search .search-input {
+  text-align: center;
+  font-size: 1.1rem;
+  border-radius: 0.8rem;
+}
+
 .table-caption {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
+  font-weight: 700;
   margin-bottom: 10px;
   text-align: left;
   color: #e0e0e0;
