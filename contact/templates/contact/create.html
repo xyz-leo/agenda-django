@@ -7,10 +7,47 @@
 
 {% block content %}
   <div class="form-wrapper">
+  <h1 class="form-title">Create New Contact</h1>
+  <form action="{% url 'contact:create' %}" method="POST" class="form" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {% for field in form %}
+      <p>
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        
+        <input 
+          type="{{ field.field.widget.input_type }}" 
+          name="{{ field.html_name }}" 
+          id="{{ field.id_for_label }}" 
+          value="{{ field.value|default_if_none:'' }}"
+          placeholder="Enter {{ field.label }}"
+          class="form-input"
+          required
+        >
+
+        {% if field.errors %}
+          <div class="form-error">
+            {{ field.errors }}
+          </div>
+        {% endif %}
+      </p>
+    {% endfor %}
+
+    <button type="submit" class="form-button">Create</button>
+  </form>
+</div>
+{% endblock content %}
+
+<!-- {# <div class="form-wrapper">
     <h1 class="form-title">Create New Contact</h1>
-    <form action="" method="POST" class="form">
+    <form action="{% url 'contact:create' %}" method="POST" class="form" enctype="multipart/form-data">
       {% csrf_token %}
-      
+      {% for field in form %}
+        <p>
+      	  <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+	  {{ field }}
+	</p>
+      {% endfor %}
       <p>
         <label for="id_first_name">First Name</label>
         <input type="text" name="first_name" id="id_first_name" placeholder="Enter first name" required>
@@ -33,6 +70,5 @@
 
       <button type="submit" class="form-button">Create</button>
     </form>
-  </div>
-{% endblock content %}
+</div> #} -->
 
