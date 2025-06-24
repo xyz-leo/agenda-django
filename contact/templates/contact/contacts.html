@@ -29,7 +29,7 @@
 	{% for contact in page_obj %}
 	  <tr class="table-row">
 	    <td class="table-cel" data-label="First Name">
-		<a class="table-link" href="{% url 'contact:contact-details' contact.id %}">{{ contact.first_name }}</a>
+		<a class="table-link" href="{% url 'contact:details' contact.id %}">{{ contact.first_name }}</a>
 	    </td>
 	    <td class="table-cel" data-label="Last Name">
 	      {{ contact.last_name }}

@@ -35,6 +35,10 @@
   font-size: 1rem;
 }
 
+.form .form-group input:hover, textarea:hover, select:hover {
+  border: 1px solid #555;
+}
+
 .form-button {
   background-color: rgb(74, 144, 226);
   color: #fff;

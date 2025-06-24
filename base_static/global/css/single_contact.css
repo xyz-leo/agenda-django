@@ -38,3 +38,19 @@ main {
   color: #aaaaaa;
 }
 
+.button {
+  background-color: rgb(74, 144, 226);
+  text-decoration: none;
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #337ab7;
+}
+

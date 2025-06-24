@@ -1,6 +1,7 @@
 from django import forms
 from django.core.exceptions import ValidationError
 from . import models
+import re
 
 class ContactForm(forms.ModelForm):
     class Meta:
@@ -19,8 +20,11 @@ class ContactForm(forms.ModelForm):
             raise forms.ValidationError('Last name cannot contain numbers.')
         return last_name
 
+
     def clean_phone(self):
         phone = self.cleaned_data.get('phone')
-        if not phone.isdigit():
-            raise forms.ValidationError('Phone must contain only numbers.')
+
+        if not re.fullmatch(r'[\d\s()-]+', phone):
+            raise forms.ValidationError('Phone must contain only numbers, spaces, parentheses and dashes (-).')
+
         return phone

@@ -17,6 +17,7 @@
     <p><b>E-mail:</b> {{ contact.email }}</p>
     <p><b>Phone:</b> {{ contact.phone }}</p>
     <p><b>Category:</b> {{ contact.category }}</p>
-    <p><b>Created date:</b> {{ contact.created_date }}</p>
+    <p><b>Created date:</b> {{ contact.created_date }}</p><hr><br><br>
+    <a href="{% url 'contact:update' contact.id %}" class="button">Update</a>
   </div>
 {% endblock %}

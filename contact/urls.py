@@ -10,6 +10,7 @@ urlpatterns = [
         
         # Contact
         path('contacts/', views.contacts, name='contacts'),
-        path('contact/<int:contact_id>/details/', views.single_contact, name='contact-details'),
+        path('contact/<int:contact_id>/details/', views.single_contact, name='details'),
         path('contact/create/', views.create, name='create'),
+        path('contact/<int:contact_id>/update/', views.update, name='update'),
 ]
