@@ -1,4 +1,4 @@
-/* HOME MODERNA */
+/* modern design for home page */
 .home-section {
   display: flex;
   flex-direction: row;
@@ -81,7 +81,7 @@
   filter: drop-shadow(0 0 20px rgba(0,0,0,0.6));
 }
 
-/* RESPONSIVO */
+/* responsive */
 @media (max-width: 768px) {
   .home-section {
     flex-direction: column;

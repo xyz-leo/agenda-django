@@ -14,19 +14,19 @@
   text-align: center;
 }
 
-.form p {
+.form .form-group {
   display: flex;
   flex-direction: column;
   margin-bottom: 1.2rem;
 }
 
-.form label {
+.form .form-group label {
   color: #ccc;
   font-weight: bold;
   margin-bottom: 0.5rem;
 }
 
-.form input {
+.form .form-group input, textarea, select {
   padding: 0.7rem;
   border-radius: 6px;
   border: 1px solid #444;
@@ -51,3 +51,19 @@
   background-color: #337ab7;
 }
 
+.form-error {
+  color: #ff6b6b;          
+  background-color: #330000; 
+  padding: 0.6rem 1rem;
+  margin-top: 0.5rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-shadow: 0 0 6px rgba(255, 107, 107, 0.7);
+}
+
+.form .form-group textarea {
+  resize: none;
+  max-width: auto;
+  max-height: 6rem;
+}
