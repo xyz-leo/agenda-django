@@ -21,7 +21,7 @@ class Contact(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     phone = models.CharField(max_length=20)
-    email = models.EmailField(max_length=254)
+    email = models.EmailField(blank=True, max_length=254,)
     created_date = models.DateTimeField(default=timezone.now)
     description = models.TextField(blank=True)
     show = models.BooleanField(default=True) #type: ignore
@@ -30,8 +30,15 @@ class Contact(models.Model):
 
     owner = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
 
+    user = models.ForeignKey(
+        User, 
+        on_delete=models.CASCADE,
+        related_name='contacts',
+        null = True,
+        blank=True
+    )
 
-        
+
     # Used to show the objects by fname and lname
     def __str__(self) -> str:
         return f'{self.first_name} {self.last_name}'

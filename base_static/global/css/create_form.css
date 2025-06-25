@@ -40,7 +40,9 @@
 }
 
 .form-button {
+  display: inline-block;
   background-color: rgb(74, 144, 226);
+  text-decoration: none;
   color: #fff;
   padding: 0.8rem 1.5rem;
   font-size: 1rem;
@@ -89,3 +91,6 @@
     background-color: rgba(140, 0, 0);   
 }
 
+.register {
+  background-color: rgba(0, 160, 150)
+}

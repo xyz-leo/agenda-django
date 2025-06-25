@@ -1,3 +1,5 @@
+from django.contrib.auth import login
+from django.contrib.auth.views import login_required
 from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404, render, redirect
 from django.db.models import Q
@@ -6,9 +8,10 @@ from contact.models import Contact
 
 # Create your views here.
 
+@login_required
 def contacts(request):
     contacts = Contact.objects \
-            .filter(show=True) \
+            .filter(user=request.user, show=True) \
             .order_by("first_name")
 
     paginator = Paginator(contacts, 10)
@@ -20,7 +23,7 @@ def contacts(request):
             }
     return render(request, 'contact/contacts.html', context)
 
-
+@login_required
 def single_contact(request, contact_id):
     single_contact = get_object_or_404(Contact, pk=contact_id, show=True)
 
@@ -30,7 +33,7 @@ def single_contact(request, contact_id):
 
     return render(request, 'contact/single_contact.html', context)
 
-
+@login_required
 def search(request):
     search_value = request.GET.get('q', '').strip()
     

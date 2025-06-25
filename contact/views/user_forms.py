@@ -4,6 +4,7 @@ from django.contrib import auth
 from contact.forms import RegisterForm
 from django.contrib.auth.forms import AuthenticationForm
 
+
 def register(request):
     form = RegisterForm()
 
@@ -16,7 +17,8 @@ def register(request):
             return redirect('contact:login_view')
             # redirect pra pagina de view de usuario
 
-    return render(request, 'contact/create.html', {'form': form, 'title': 'Register', 'button': 'Create'})
+    return render(request, 'contact/create.html', {'form': form, 'title': 'Register', 'button': 'Register'})
+
 
 def login_view(request):
     form = AuthenticationForm(request)

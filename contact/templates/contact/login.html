@@ -11,6 +11,7 @@
       <a href="{% url 'contact:logout_view' %}" class='logout-button'>Logout</a>
     {% else %}
       {% include 'contact/partials/form.html' %}
+      <a href="{% url 'contact:register' %}" class='form-button register'>Register</a>
     {% endif %}
 {% endblock content %}
 
