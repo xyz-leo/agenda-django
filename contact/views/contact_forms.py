@@ -55,3 +55,8 @@ def update(request, contact_id):
             }
 
     return render(request, 'contact/create.html', context)
+
+def delete(request, contact_id):
+    contact = get_object_or_404(Contact, pk=contact_id, show=True)
+    contact.delete()
+    return redirect('contact:contacts')

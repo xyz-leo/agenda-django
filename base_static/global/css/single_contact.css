@@ -54,3 +54,15 @@ main {
   background-color: #337ab7;
 }
 
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons .del-button {
+  background-color: rgb(180, 0, 0);
+}
+
+.buttons .del-button:hover {
+  background-color: rgb(140, 0, 0);
+}
