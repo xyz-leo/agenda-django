@@ -46,4 +46,3 @@ class RegisterForm(UserCreationForm):
             self.add_error('email', ValidationError('Email already registered', code='Invalid'))
 
         return email
-
