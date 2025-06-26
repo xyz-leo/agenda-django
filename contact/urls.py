@@ -16,9 +16,10 @@ urlpatterns = [
         path('contact/<int:contact_id>/delete/', views.delete, name='delete'),
 
         # User
-        path('user/', views.user, name='user'),
+        path('user/', views.user_view, name='user_view'),
         path('user/register/', views.register, name='register'),
         path('user/login/', views.login_view, name='login_view'),
         path('user/logout/', views.logout_view, name='logout_view'),
+        path('user/update/', views.user_update, name='user_update'),
 ]
         

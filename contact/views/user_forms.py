@@ -2,12 +2,12 @@ from django.contrib.auth.views import login_required
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib import auth
-from contact.forms import RegisterForm
+from contact.forms import RegisterForm, RegisterUpdateForm
 from django.contrib.auth.forms import AuthenticationForm
 
 
 @login_required
-def user(request):
+def user_view(request):
     return render(request, 'contact/login.html')
 
 
@@ -28,7 +28,7 @@ def register(request):
 def login_view(request):
     form = AuthenticationForm(request)
     if request.user.is_authenticated:
-        return redirect('contact:user')
+        return redirect('contact:user_view')
 
     if request.method == 'POST':
         form = AuthenticationForm(request, data=request.POST)
@@ -42,6 +42,7 @@ def login_view(request):
 
     return render(request, 'contact/login.html', {'form': form, 'title': 'Login', 'button': 'Sign in'})
 
+
 @login_required
 def logout_view(request):
     if not request.user.is_authenticated:
@@ -49,3 +50,19 @@ def logout_view(request):
     auth.logout(request)
     messages.success(request, "Logout succesful!")
     return redirect('contact:login_view')
+
+
+@login_required
+def user_update(request):
+    form = RegisterUpdateForm(instance=request.user)
+
+    if request.method != 'POST':
+        return render(request, 'contact/create.html', {'form': form, 'button': 'Send', 'title': 'Update User Information'})
+    
+    form = RegisterUpdateForm(data=request.POST, instance=request.user)
+
+    if not form.is_valid():
+        return render(request, 'contact/create.html', {'form': form, 'button': 'Send', 'title': 'Update User Information'})
+
+    form.save()
+    return redirect('contact:user_view')

@@ -30,7 +30,7 @@
 	<li><a href="{% url 'contact:create' %}">New Contact</a></li>
         <li><a href="#">Categories</a></li>
 	{% if user.is_authenticated %}
-	  <li><a id='user-a' href="{% url 'contact:user' %}">{{ user }}</a></li>
+	  <li><a id='user-a' href="{% url 'contact:user_view' %}">{{ user }}</a></li>
 	{% else %}
 	  <li><a id='user-a' href="{% url 'contact:login_view' %}">Login</a></li>
 

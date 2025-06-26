@@ -46,3 +46,8 @@ class RegisterForm(UserCreationForm):
             self.add_error('email', ValidationError('Email already registered', code='Invalid'))
 
         return email
+
+class RegisterUpdateForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ('first_name', 'last_name', 'email', 'username')

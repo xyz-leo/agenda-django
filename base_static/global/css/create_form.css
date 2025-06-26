@@ -76,15 +76,6 @@
 
 .logout-button {
     background-color: rgba(180, 0, 0);  
-    color: white;             
-    padding: 10px 20px;       
-    border: none;              
-    border-radius: 5px;         
-    cursor: pointer;            
-    text-decoration: none;       
-    font-weight: bold;          
-    transition: background-color 0.3s;
-    display: inline-block;      
 }
 
 .logout-button:hover {
@@ -93,4 +84,8 @@
 
 .register {
   background-color: rgba(0, 160, 150)
+}
+
+.update-button {
+    background-color: rgba(0, 0, 180);  
 }

@@ -10,11 +10,21 @@
     {% if user.is_authenticated %}
       <h1>User Page</h1><br>
 
-        <p>You are logged as: <strong>{{ user }}</strong>.</p><br>
+        <p>You are logged as: <strong>{{ user }}</strong>.</p><br><br>
+
+	<h2>User Information</h2>
+        <p>First name: <strong>{{ user.first_name }}</strong>.</p>
+        <p>Last Name: <strong>{{ user.last_name }}</strong>.</p>
+        <p>Phone Number: <strong>{{ user.phone }}</strong>.</p>
+        <p>Email: <strong>{{ user.email }}</strong>.</p><br><br>
 
 	<form action="{% url 'contact:logout_view' %}" method="post">
     	{% csrf_token %}
-          <button class=logout-button type="submit">Logout</button>
+          <button class='form-button logout-button' type="submit">Logout</button>
+	</form>
+	
+	<a class='form-button' href="{% url 'contact:user_update' %}">Update</a>
+
     {% else %}
       {% include 'contact/partials/form.html' %}
         <a href="{% url 'contact:register' %}" class='form-button register'>Register</a>
