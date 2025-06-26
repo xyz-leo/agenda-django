@@ -8,10 +8,16 @@
 {% block content %}
   <div class="form-wrapper">
     {% if user.is_authenticated %}
-      <a href="{% url 'contact:logout_view' %}" class='logout-button'>Logout</a>
+      <h1>User Page</h1><br>
+
+        <p>You are logged as: <strong>{{ user }}</strong>.</p><br>
+
+	<form action="{% url 'contact:logout_view' %}" method="post">
+    	{% csrf_token %}
+          <button class=logout-button type="submit">Logout</button>
     {% else %}
       {% include 'contact/partials/form.html' %}
-      <a href="{% url 'contact:register' %}" class='form-button register'>Register</a>
+        <a href="{% url 'contact:register' %}" class='form-button register'>Register</a>
     {% endif %}
 {% endblock content %}
 

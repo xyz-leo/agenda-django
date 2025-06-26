@@ -1,12 +1,10 @@
-from django.contrib.auth import login
+from django.contrib import messages
 from django.contrib.auth.views import login_required
 from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404, render, redirect
 from django.db.models import Q
-from django.template.base import COMMENT_TAG_END
 from contact.models import Contact
 
-# Create your views here.
 
 @login_required
 def contacts(request):

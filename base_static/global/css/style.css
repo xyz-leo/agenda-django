@@ -43,6 +43,10 @@ nav a:hover {
   color: #4A90E2; 
 }
 
+#user-a {
+  color: #4A90E2;
+}
+
 main {
   padding: 2rem;
   max-width: 1200px;
