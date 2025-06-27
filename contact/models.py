@@ -5,16 +5,22 @@ from django.contrib.auth.models import User
 
 
 # Create your models here.
-
 class Category(models.Model):
     category_name = models.CharField(max_length=30)
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name='categories',
+        null=True,
+        blank=True
+    )
 
     def __str__(self) -> str:
-        return f'{self.category_name}'
+        return self.category_name
 
     class Meta:
         verbose_name = 'Category'
-        verbose_name_plural = 'Categories' # The automatic Django plural makes a typo "Categorys", so we rename it with this Meta class.
+        verbose_name_plural = 'Categories'
 
 
 class Contact(models.Model):
@@ -27,8 +33,6 @@ class Contact(models.Model):
     show = models.BooleanField(default=True) #type: ignore
     picture = models.ImageField(blank=True, upload_to='pictures/%Y/%m/')
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True)
-
-    owner = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
 
     user = models.ForeignKey(
         User, 

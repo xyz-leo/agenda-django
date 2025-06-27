@@ -23,7 +23,7 @@ def contacts(request):
 
 @login_required
 def single_contact(request, contact_id):
-    single_contact = get_object_or_404(Contact, pk=contact_id, show=True)
+    single_contact = get_object_or_404(Contact, pk=contact_id, show=True, user=request.user)
 
     context = {
             'contact': single_contact
@@ -39,7 +39,7 @@ def search(request):
         return redirect('contact:contacts')
     
     contacts = Contact.objects \
-            .filter(show=True) \
+            .filter(show=True, user=request.user) \
             .filter(
                     Q(first_name__icontains=search_value) |
                     Q(last_name__icontains=search_value) |

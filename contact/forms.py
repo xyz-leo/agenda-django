@@ -11,6 +11,12 @@ class ContactForm(forms.ModelForm):
         model = models.Contact
         fields = ('first_name', 'last_name', 'phone', 'email', 'description', 'category',)
 
+    def __init__(self, *args, **kwargs):
+        user = kwargs.pop('user', None)  # captura o usuário passado
+        super().__init__(*args, **kwargs)
+        if user is not None:
+            self.fields['category'].queryset = models.Category.objects.filter(user=user)
+
     def clean_first_name(self):
         first_name = self.cleaned_data.get('first_name')
         if any(char.isdigit() for char in first_name):
@@ -116,3 +122,9 @@ class RegisterUpdateForm(forms.ModelForm):
             except ValidationError as errors:
                 self.add_error('password1', ValidationError(errors))
         return password1
+
+
+class CategoryForm(forms.ModelForm):
+    class Meta:
+        model = models.Category
+        fields = ['category_name']

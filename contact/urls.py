@@ -21,5 +21,14 @@ urlpatterns = [
         path('user/login/', views.login_view, name='login_view'),
         path('user/logout/', views.logout_view, name='logout_view'),
         path('user/update/', views.user_update, name='user_update'),
+
+        # Categories
+        path('categories/', views.category_list, name='category_list'),
+        path('categories/<int:category_id>/contacts/', views.contacts_by_category, name='contacts_by_category'),
+        path('categories/create', views.category_create, name='category_create'),
+       path('categories/<int:category_id>/', views.category_detail, name='category_detail'),
+       path('categories/<int:category_id>/edit', views.category_update, name='category_update'),
+       path('categories/<int:category_id>/delete', views.category_delete, name='category_delete'),
+
 ]
         

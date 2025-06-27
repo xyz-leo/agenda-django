@@ -45,8 +45,6 @@ def login_view(request):
 
 @login_required
 def logout_view(request):
-    if not request.user.is_authenticated:
-        return redirect('contact:login_view')
     auth.logout(request)
     messages.success(request, "Logout succesful!")
     return redirect('contact:login_view')
@@ -65,4 +63,5 @@ def user_update(request):
         return render(request, 'contact/create.html', {'form': form, 'button': 'Send', 'title': 'Update User Information'})
 
     form.save()
+    messages.success(request, 'Your profile was updated successfully.')
     return redirect('contact:user_view')

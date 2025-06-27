@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
-from contact.forms import ContactForm
+from contact.forms import ContactForm 
 from contact.models import Contact
 
 
@@ -9,7 +9,7 @@ from contact.models import Contact
 def create(request):
     form_action = reverse('contact:create')
     if request.method == 'POST':
-        form = ContactForm(request.POST)
+        form = ContactForm(request.POST, user=request.user)
         context = {
                 'form': form,
                 'form_action': form_action,
@@ -26,7 +26,7 @@ def create(request):
         return render(request, 'contact/create.html', context)
 
     context = {
-            'form': ContactForm(),
+            'form': ContactForm(user=request.user),
             'form_action': form_action,
             'title': 'Create New Contact',
             'button': 'Create',
@@ -37,10 +37,11 @@ def create(request):
 
 @login_required
 def update(request, contact_id):
-    contact = get_object_or_404(Contact, pk=contact_id, show=True)
+    contact = get_object_or_404(Contact, pk=contact_id, show=True, user=request.user)
     form_action = reverse('contact:update', args=(contact_id,))
+
     if request.method == 'POST':
-        form = ContactForm(request.POST, instance=contact)
+        form = ContactForm(request.POST, instance=contact, user=request.user)
         context = {
                 'form': form,
                 'form_action': form_action,
@@ -55,7 +56,7 @@ def update(request, contact_id):
         return render(request, 'contact/create.html', context)
 
     context = {
-            'form': ContactForm(instance=contact),
+            'form': ContactForm(instance=contact, user=request.user),
             'form_action': form_action,
             'title': 'Update Contact',
             'button': 'Update',
