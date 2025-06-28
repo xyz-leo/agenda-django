@@ -1,80 +1,103 @@
-{% load static %}
+{% load static %}  <!-- Loads Django's static files template tag -->
 <!DOCTYPE html>
 <html lang="en_US">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />  <!-- Sets character encoding -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />  <!-- Responsive viewport setup -->
+
   {% block title %}
-    <title>Agenda Django</title>
+    <title>Agenda Django</title>  <!-- Default title, can be overridden -->
   {% endblock title %}
-  <link rel="stylesheet" href="{% static 'global/css/style.css' %}" />
+
+  <link rel="stylesheet" href="{% static 'global/css/style.css' %}" />  <!-- Main CSS file -->
+
   {% block extracss %}
-    <!-- Extra css -->
+    <!-- Block for page-specific CSS -->
   {% endblock extracss %}
-<!--  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"> -->
+  <!-- Google fonts (optional) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
+  <!-- Header with site title and navigation -->
   <header>
     <h1>Agenda</h1>
+
+    <!-- Hamburger button for responsive menu -->
     <button id="hamburger-btn" aria-label="Toggle menu" aria-expanded="false">
       <span class="bar"></span>
       <span class="bar"></span>
       <span class="bar"></span>
     </button>
-    <!-- navigation menu -->
+
+    <!-- Navigation menu -->
     <nav>
       <ul>
-	<li><a href="{% url 'contact:home' %}">Home</a></li>
-	<li><a href="{% url 'contact:contacts' %}">Contacts</a></li>
-	<li><a href="{% url 'contact:create' %}">New Contact</a></li>
-	<li><a href="{% url 'contact:category_list' %}">Categories</a></li>
-	{% if user.is_authenticated %}
-	  <li><a id='user-a' href="{% url 'contact:user_view' %}">{{ user }}</a></li>
-	{% else %}
-	  <li><a id='user-a' href="{% url 'contact:login_view' %}">Login</a></li>
+        <li><a href="{% url 'contact:home' %}">Home</a></li>
+        <li><a href="{% url 'contact:contacts' %}">Contacts</a></li>
+        <li><a href="{% url 'contact:create' %}">New Contact</a></li>
+        <li><a href="{% url 'contact:category_list' %}">Categories</a></li>
 
-	{% endif %}
+        <!-- Authenticated user menu -->
+        {% if user.is_authenticated %}
+          <li>
+            <a id='user-a' href="{% url 'contact:user_view' %}">
+              {{ user }}
+            </a>
+          </li>
+        {% else %}
+          <li>
+            <a id='user-a' href="{% url 'contact:login_view' %}">
+              Login
+            </a>
+          </li>
+        {% endif %}
       </ul>
     </nav>
   </header>
+
+  <!-- Display Django messages (alerts, errors, etc.) -->
   {% if messages %}
     <ul class="messages">
-        {% for message in messages %}
-            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
-                {{ message }}
-            </li>
-        {% endfor %}
+      {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+          {{ message }}
+        </li>
+      {% endfor %}
     </ul>
   {% endif %}
+
+  <!-- Main content block -->
   <main>
     {% block content %}
-      <!-- Main content -->
+      <!-- Page content goes here -->
     {% endblock %}
+
+    <!-- Pagination partial -->
     {% include 'global/partials/_pagination.html' %}
   </main>
 
-  <!-- Do not use this website for production, it was just a practice website to learn Django -->
+  <!-- Footer -->
   <footer>
     <p>Just a Django practice project, not for production use.</p>
   </footer>
 
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const btn = document.getElementById('hamburger-btn');
-    const menu = document.querySelector('nav ul');
+  <!-- JavaScript for responsive hamburger menu -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('hamburger-btn');
+      const menu = document.querySelector('nav ul');
 
-    if (btn && menu) {
-      btn.addEventListener('click', () => {
-        menu.classList.toggle('show');
+      if (btn && menu) {
+        btn.addEventListener('click', () => {
+          menu.classList.toggle('show');
 
-        const expanded = btn.getAttribute('aria-expanded') === 'true';
-        btn.setAttribute('aria-expanded', !expanded);
-      });
-    }
-  });
-</script>
+          const expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', !expanded);
+        });
+      }
+    });
+  </script>
 
 </body>
 </html>
-

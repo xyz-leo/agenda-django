@@ -2,10 +2,14 @@
 {% load static %}
 
 {% block extracss %}
+  <!-- Include specific CSS for form styling -->
   <link rel="stylesheet" href="{% static 'global/css/create_form.css' %}">
 {% endblock extracss %}
 
 {% block content %}
   <div class="form-wrapper">
-    {% include 'contact/partials/form.html' %}
+    <!-- Import the form template -->
+    {% include 'global/form.html' %}
+  </div>
 {% endblock content %}
+

@@ -1,3 +1,4 @@
+/* Form wrapper styling */
 .form-wrapper {
   max-width: 600px;
   margin: 4rem auto;
@@ -7,6 +8,7 @@
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
 }
 
+/* Form title */
 .form-title {
   color: #f1f1f1;
   margin-bottom: 1.5rem;
@@ -14,19 +16,24 @@
   text-align: center;
 }
 
+/* Form group layout */
 .form .form-group {
   display: flex;
   flex-direction: column;
   margin-bottom: 1.2rem;
 }
 
+/* Label styling */
 .form .form-group label {
   color: #ccc;
   font-weight: bold;
   margin-bottom: 0.5rem;
 }
 
-.form .form-group input, textarea, select {
+/* Input, textarea, select fields */
+.form .form-group input,
+textarea,
+select {
   padding: 0.7rem;
   border-radius: 6px;
   border: 1px solid #444;
@@ -35,10 +42,14 @@
   font-size: 1rem;
 }
 
-.form .form-group input:hover, textarea:hover, select:hover {
+/* Hover effect for inputs */
+.form .form-group input:hover,
+textarea:hover,
+select:hover {
   border: 1px solid #555;
 }
 
+/* General form buttons */
 .form-button {
   display: inline-block;
   background-color: rgb(74, 144, 226);
@@ -57,9 +68,10 @@
   background-color: #337ab7;
 }
 
+/* Error message box */
 .form-error {
-  color: #ff6b6b;          
-  background-color: #330000; 
+  color: #ff6b6b;
+  background-color: #330000;
   padding: 0.6rem 1rem;
   margin-top: 0.5rem;
   border-radius: 6px;
@@ -68,24 +80,26 @@
   box-shadow: 0 0 6px rgba(255, 107, 107, 0.7);
 }
 
+/* Textarea adjustments */
 .form .form-group textarea {
   resize: none;
-  max-width: auto;
   max-height: 6rem;
 }
 
+/* Special buttons */
 .logout-button {
-    background-color: rgba(180, 0, 0);  
+  background-color: rgba(180, 0, 0);
 }
 
 .logout-button:hover {
-    background-color: rgba(140, 0, 0);   
+  background-color: rgba(140, 0, 0);
 }
 
 .register {
-  background-color: rgba(0, 160, 150)
+  background-color: rgba(0, 160, 150);
 }
 
 .update-button {
-    background-color: rgba(0, 0, 180);  
+  background-color: rgba(0, 0, 180);
 }
+

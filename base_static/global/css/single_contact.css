@@ -1,13 +1,9 @@
-/* static/global/css/single_contact.css */
-main {
-  margin-top: 2rem;
-}
-
+/* Contact detail card */
 .single-contact {
   max-width: 600px;
   margin: 4rem auto;
   padding: 2rem;
-  background-color: #1e1e1e; /* Fundo dark */
+  background-color: #1e1e1e;
   border: 1px solid #333;
   border-radius: 1rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
@@ -21,6 +17,7 @@ main {
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
 }
 
+/* Contact name */
 .single-contact-name {
   font-size: 2rem;
   font-weight: 700;
@@ -29,6 +26,7 @@ main {
   text-align: center;
 }
 
+/* Contact info */
 .single-contact p {
   margin: 1rem 0;
   font-size: 1.1rem;
@@ -38,6 +36,7 @@ main {
   color: #aaaaaa;
 }
 
+/* Buttons */
 .button {
   background-color: rgb(74, 144, 226);
   text-decoration: none;
@@ -54,11 +53,13 @@ main {
   background-color: #337ab7;
 }
 
+/* Button layout */
 .buttons {
   display: flex;
   justify-content: space-between;
 }
 
+/* Delete button style */
 .buttons .del-button {
   background-color: rgb(180, 0, 0);
 }
@@ -66,3 +67,4 @@ main {
 .buttons .del-button:hover {
   background-color: rgb(140, 0, 0);
 }
+

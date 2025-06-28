@@ -2,14 +2,16 @@
 {% load static %}
 
 {% block extracss %}
-  <link rel="stylesheet" href="{% static 'global/css/table.css' %}">
+  <link rel="stylesheet" href="{% static 'global/css/table.css' %}"> {# Table styling CSS #}
 {% endblock extracss %}
 
 {% block content %}
   <div class="table">
     <div class="search">
+      {# Displays the category name in the title #}
       <h2 class="table-caption">Contacts in category: "{{ category.category_name }}"</h2>
-      <a href="{% url 'contact:category_list' %}">← Back to Categories</a>
+      {# Back link to categories list #}
+      <a class="back" href="{% url 'contact:category_list' %}">← Back to Categories</a>
     </div>
 
     <table class="contacts-table">
@@ -23,6 +25,7 @@
       </thead>
 
       <tbody>
+        {# Iterates over contacts in the category #}
         {% for contact in contacts %}
           <tr class="table-row">
             <td class="table-cel" data-label="First Name">
@@ -39,6 +42,7 @@
             </td>
           </tr>
         {% empty %}
+          {# Message if there are no contacts in this category #}
           <tr>
             <td colspan="4">No contacts in this category.</td>
           </tr>

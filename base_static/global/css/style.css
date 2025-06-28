@@ -5,6 +5,7 @@
   box-sizing: border-box;
 }
 
+/* Body */
 body {
   font-family: 'Poppins', sans-serif;
   background: #121212;
@@ -12,6 +13,7 @@ body {
   min-height: 100vh;
 }
 
+/* Header */
 header {
   background: #1F1F1F;
   color: #e0e0e0;
@@ -22,10 +24,12 @@ header {
   box-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
+/* Header title */
 header h1 {
   font-size: 1.8rem;
 }
 
+/* Navigation */
 nav ul {
   list-style: none;
   display: flex;
@@ -40,13 +44,14 @@ nav a {
 }
 
 nav a:hover {
-  color: #4A90E2; 
+  color: #4A90E2;
 }
 
 #user-a {
   color: #4A90E2;
 }
 
+/* Main content */
 main {
   padding: 2rem;
   max-width: 1200px;
@@ -57,6 +62,7 @@ main {
   box-shadow: 0 2px 6px rgba(0,0,0,0.7);
 }
 
+/* Footer */
 footer {
   text-align: center;
   padding: 1rem;
@@ -66,10 +72,10 @@ footer {
   border-top: 1px solid #333;
 }
 
+/* Pagination */
 .pagination {
   margin-top: 2rem;
   text-align: center;
-  font-family: 'Roboto', sans-serif;
 }
 
 .step-links {
@@ -81,6 +87,7 @@ footer {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }
 
+/* Links in pagination */
 .step-links a {
   color: #00bcd4;
   text-decoration: none;
@@ -96,69 +103,49 @@ footer {
 }
 
 .step-links .current {
-  display: inline-block;
   margin: 0 1rem;
   color: #fff;
   font-weight: bold;
 }
 
-
+/* Django messages */
 .messages {
-    list-style: none;
-    padding: 10px;
+  list-style: none;
+  padding: 10px;
 }
 
 .messages li {
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
 .messages .success {
-    background-color: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
 }
 
 .messages .error {
-    background-color: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
 }
 
-/* Hide 'hamburger' button in desktop view */
+/* Hamburger menu for mobile */
 #hamburger-btn {
   display: none;
 }
 
-/* Hide horizontal menu in mobile view */
+/* Mobile nav adjustments */
 @media (max-width: 768px) {
-    .step-links {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 1rem;
-  }
-
-  .step-links a {
-    margin: 0;
-    width: 100%;
-    text-align: center;
-  }
-
-  .step-links .current {
-    margin: 0;
-    padding: 0.3rem 0;
-  }
-
   nav ul {
-    display: none; /* esconde o menu desktop */
+    display: none;
     flex-direction: column;
     background-color: #1F1F1F;
     position: absolute;
-    top: 60px; /* ajusta conforme seu header */
+    top: 60px;
     right: 0;
     width: 200px;
     padding: 1rem;
@@ -167,12 +154,10 @@ footer {
     z-index: 100;
   }
 
-  /* Quando ativo, mostra o menu */
   nav ul.show {
     display: flex;
   }
 
-  /* Mostra o botão hamburger */
   #hamburger-btn {
     display: flex;
     position: absolute;
@@ -186,7 +171,6 @@ footer {
     z-index: 101;
   }
 
-  /* Estilo das barras do hamburger */
   #hamburger-btn .bar {
     width: 25px;
     height: 3px;
@@ -194,5 +178,4 @@ footer {
     border-radius: 2px;
   }
 }
-
 
